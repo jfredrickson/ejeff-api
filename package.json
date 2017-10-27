@@ -1,0 +1,28 @@
+{
+  "name": "ejeff-api",
+  "version": "1.0.0",
+  "description": "REST API for ejeff.org",
+  "main": "server.js",
+  "scripts": {
+    "start": "if [ \"$NODE_ENV\" = \"production\" ]; then node server.js; else nodemon server.js; fi",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfredrickson/ejeff-api.git"
+  },
+  "author": "Jeff Fredrickson <jeff.fredrickson@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jfredrickson/ejeff-api/issues"
+  },
+  "homepage": "https://github.com/jfredrickson/ejeff-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.12.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
