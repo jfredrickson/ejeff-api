@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const passport = require('passport')
 const config = require('./config')
 const routes = require('./controllers')
 
@@ -10,6 +11,7 @@ mongoose.connect(config.db.url, { useMongoClient: true })
 const app = express()
 
 app.use(bodyParser.json())
+app.use(passport.initialize())
 app.use('/api', routes)
 
 let server = app.listen(config.port, () => {

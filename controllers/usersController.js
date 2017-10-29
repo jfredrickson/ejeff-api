@@ -7,7 +7,7 @@ module.exports.create = (req, res) => {
   })
   user.save((err) => {
     if (err) return res.status(500).send(err)
-    res.status(201).json({ _id: user._id, username: user.username })
+    res.status(201).json(user.toJSON())
   })
 }
 

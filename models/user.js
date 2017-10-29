@@ -29,4 +29,17 @@ UserSchema.pre('save', function (next) {
   })
 })
 
+UserSchema.methods.verifyPassword = function (password, done) {
+  bcrypt.compare(password, this.password, (err, verified) => {
+    if (err) return done(err)
+    done(null, verified)
+  })
+}
+
+UserSchema.methods.toJSON = function () {
+  return {
+    username: this.username,
+  }
+}
+
 module.exports = mongoose.model('User', UserSchema)
