@@ -24,7 +24,6 @@ const jwtStrategyOptions = {
 
 const jwtStrategy = new JwtStrategy(jwtStrategyOptions, (payload, done) => {
   User.findById(payload._id, (err, user) => {
-    console.log(user)
     if (err) return done(err)
     if (!user) return done(null, false)
     done(null, user)
