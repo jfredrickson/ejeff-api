@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "if [ \"$NODE_ENV\" = \"production\" ]; then node server.js; else nodemon server.js; fi",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test istanbul cover _mocha -- --exit"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,10 @@
     "passport-jwt": "^3.0.1"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1",
     "nodemon": "^1.12.1"
   }
 }
