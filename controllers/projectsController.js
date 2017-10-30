@@ -20,7 +20,13 @@ module.exports.create = (req, res) => {
   project.summary = req.body.summary
   project.details = req.body.details
   project.save((err) => {
-    if (err) return res.status(500).send(err)
+    if (err) {
+      if (err.name === 'ValidationError') {
+        return res.status(400).send(err)
+      } else {
+        return res.status(500).send()
+      }
+    }
     res.status(201).json(project)
   })
 }
@@ -32,7 +38,13 @@ module.exports.update = (req, res) => {
     project.summary = req.body.summary || project.summary
     project.details = req.body.details || project.details
     project.save((err) => {
-      if (err) return res.status(500).send(err)
+      if (err) {
+        if (err.name === 'ValidationError') {
+          return res.status(400).send(err)
+        } else {
+          return res.status(500).send()
+        }
+      }
       res.status(204).send()
     })
   })
