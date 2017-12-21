@@ -19,6 +19,7 @@ module.exports.create = (req, res) => {
   project.title = req.body.title
   project.summary = req.body.summary
   project.details = req.body.details
+  project.tags = req.body.tags
   project.save((err) => {
     if (err) {
       if (err.name === 'ValidationError') {
@@ -37,6 +38,7 @@ module.exports.update = (req, res) => {
     project.title = req.body.title || project.title
     project.summary = req.body.summary || project.summary
     project.details = req.body.details || project.details
+    project.tags = req.body.tags || project.tags
     project.save((err) => {
       if (err) {
         if (err.name === 'ValidationError') {
