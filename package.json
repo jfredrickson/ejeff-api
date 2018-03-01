@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "if [ \"$NODE_ENV\" = \"production\" ]; then node server.js; else nodemon server.js; fi",
-    "test": "NODE_ENV=test istanbul cover _mocha -- --exit"
+    "test": "NODE_ENV=test istanbul cover _mocha -- --exit",
+    "apidoc": "apidoc -i controllers -o apidoc"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,11 @@
     "url": "https://github.com/jfredrickson/ejeff-api/issues"
   },
   "homepage": "https://github.com/jfredrickson/ejeff-api#readme",
+  "apidoc": {
+    "template": {
+      "withCompare": false
+    }
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
@@ -30,6 +36,7 @@
     "passport-jwt": "^3.0.1"
   },
   "devDependencies": {
+    "apidoc": "^0.17.6",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "istanbul": "^0.4.5",
