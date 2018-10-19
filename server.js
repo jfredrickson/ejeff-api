@@ -17,6 +17,7 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(passport.initialize())
 app.use('/api', routes)
+app.use('/apidoc', express.static(__dirname + '/apidoc'))
 
 let server = app.listen(config.port, () => {
   console.log(`Listening on port ${server.address().port} (environment: ${config.env})`)
