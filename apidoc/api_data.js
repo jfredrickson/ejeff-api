@@ -1,5 +1,193 @@
 define({ "api": [
   {
+    "type": "delete",
+    "url": "/projects/:projectId",
+    "title": "Remove project",
+    "name": "DeleteProject",
+    "group": "Projects",
+    "success": {
+      "examples": [
+        {
+          "title": "SuccessResponse",
+          "content": "HTTP/1.1 204 No Content",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/projectsController.js",
+    "groupTitle": "Projects"
+  },
+  {
+    "type": "get",
+    "url": "/projects/:projectId",
+    "title": "Get a specific project",
+    "name": "GetProject",
+    "group": "Projects",
+    "success": {
+      "examples": [
+        {
+          "title": "SuccessResponse",
+          "content": "HTTP/1.1 200 OK\n{\n  \"_id\": \"5bca13ee58806d53af7becc3\",\n  \"summary\": \"Project summary\",\n  \"title\": \"Project 3\",\n  \"__v\": 0,\n  \"tags\": [\n    \"alpha\",\n    \"beta\",\n    \"gamma\"\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/projectsController.js",
+    "groupTitle": "Projects"
+  },
+  {
+    "type": "get",
+    "url": "/projects",
+    "title": "List all projects",
+    "name": "GetProjects",
+    "group": "Projects",
+    "success": {
+      "examples": [
+        {
+          "title": "SuccessResponse",
+          "content": "HTTP/1.1 200 OK\n[\n  {\n    \"_id\": \"5a986f06be4c400237ddb3b0\",\n    \"title\": \"Project 1\",\n    \"__v\": 0,\n    \"tags\": []\n  },\n  {\n    \"_id\": \"5a987ee8c6be33349b3defe5\",\n    \"title\": \"Project 2\",\n    \"__v\": 0,\n    \"tags\": []\n  },\n  {\n    \"_id\": \"5bca13ee58806d53af7becc3\",\n    \"summary\": \"Project summary\",\n    \"title\": \"Project 3\",\n    \"__v\": 0,\n    \"tags\": [\n        \"alpha\",\n        \"beta\",\n        \"gamma\"\n    ]\n  }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/projectsController.js",
+    "groupTitle": "Projects"
+  },
+  {
+    "type": "post",
+    "url": "/projects",
+    "title": "Create project",
+    "name": "PostProject",
+    "group": "Projects",
+    "parameter": {
+      "fields": {
+        "Request": [
+          {
+            "group": "Request",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Project title</p>"
+          },
+          {
+            "group": "Request",
+            "type": "String",
+            "optional": true,
+            "field": "summary",
+            "description": "<p>Brief project summary</p>"
+          },
+          {
+            "group": "Request",
+            "type": "String",
+            "optional": true,
+            "field": "details",
+            "description": "<p>Detailed description</p>"
+          },
+          {
+            "group": "Request",
+            "type": "String[]",
+            "optional": true,
+            "field": "tags",
+            "description": "<p>Array of tags</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "RequestExample",
+          "content": "{\n  \"title\": \"foobar\",\n  \"summary\": \"An awesome project\",\n  \"details\": \"This project is all about foobar.\",\n  \"tags\": [ \"foo\", \"bar\" ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Response": [
+          {
+            "group": "Response",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>New username</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "SuccessResponse",
+          "content": "HTTP/1.1 201 Created\n{\n  \"__v\": 0,\n  \"summary\": \"summary\",\n  \"title\": \"p3\",\n  \"_id\": \"5bca140f58806d53af7becc5\",\n  \"tags\": [\n    \"foo\",\n    \"bar\"\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/projectsController.js",
+    "groupTitle": "Projects"
+  },
+  {
+    "type": "put",
+    "url": "/projects/:projectId",
+    "title": "Update project",
+    "name": "PutProject",
+    "group": "Projects",
+    "parameter": {
+      "fields": {
+        "Request": [
+          {
+            "group": "Request",
+            "type": "String",
+            "optional": true,
+            "field": "title",
+            "description": "<p>Updated project title</p>"
+          },
+          {
+            "group": "Request",
+            "type": "String",
+            "optional": true,
+            "field": "summary",
+            "description": "<p>Updated brief project summary</p>"
+          },
+          {
+            "group": "Request",
+            "type": "String",
+            "optional": true,
+            "field": "details",
+            "description": "<p>Updated detailed description</p>"
+          },
+          {
+            "group": "Request",
+            "type": "String[]",
+            "optional": true,
+            "field": "tags",
+            "description": "<p>Updated array of tags</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "RequestExample",
+          "content": "{\n  \"details\": \"Here's an updated description for this project.\",\n  \"tags\": [ \"foo\", \"bar\", \"newtag\" ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "SuccessResponse",
+          "content": "HTTP/1.1 204 No Content",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/projectsController.js",
+    "groupTitle": "Projects"
+  },
+  {
     "type": "post",
     "url": "/token",
     "title": "Get authentication token",
