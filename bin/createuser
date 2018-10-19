@@ -1,13 +1,15 @@
+#!/usr/bin/env node
+
 const mongoose = require('mongoose')
-const config = require('./config')
-const User = require('./models/user')
+const config = require('../config')
+const User = require('../models/user')
 
 mongoose.Promise = global.Promise
 
 mongoose.connect(config.db.url, { useMongoClient: true }, (err, db) => {
   const initialUser = new User({
-    username: process.env.USERNAME,
-    password: process.env.PASSWORD
+    username: process.argv[2],
+    password: process.argv[3]
   })
   initialUser.save((err) => {
     if (err) {
