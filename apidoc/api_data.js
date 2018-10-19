@@ -1,5 +1,58 @@
 define({ "api": [
   {
+    "type": "post",
+    "url": "/inquiries",
+    "title": "Create inquiry",
+    "name": "PostInquiry",
+    "group": "Inquiries",
+    "parameter": {
+      "fields": {
+        "Request": [
+          {
+            "group": "Request",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Submitter name</p>"
+          },
+          {
+            "group": "Request",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Submitter email</p>"
+          },
+          {
+            "group": "Request",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "RequestExample",
+          "content": "{\n  \"name\": \"J Doe\",\n  \"email\": \"jdoe@example.com\",\n  \"message\": \"Hello!\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "SuccessResponse",
+          "content": "HTTP/1.1 204 No Content",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/inquiriesController.js",
+    "groupTitle": "Inquiries"
+  },
+  {
     "type": "delete",
     "url": "/projects/:projectId",
     "title": "Remove project",

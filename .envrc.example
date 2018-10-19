@@ -1,0 +1,5 @@
+# Create a new test account here: https://ethereal.email/
+export SMTP_HOST=smtp.ethereal.email
+export SMTP_PORT=587
+export SMTP_USERNAME=abcdef@ethereal.email
+export SMTP_PASSWORD=abcdef123
