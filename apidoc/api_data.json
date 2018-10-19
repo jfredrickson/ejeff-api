@@ -188,6 +188,25 @@
     "groupTitle": "Projects"
   },
   {
+    "type": "get",
+    "url": "/tags",
+    "title": "List all tags",
+    "name": "GetTags",
+    "group": "Tags",
+    "success": {
+      "examples": [
+        {
+          "title": "SuccessResponse",
+          "content": "HTTP/1.1 200 OK\n[\n  \"alpha\",\n  \"beta\",\n  \"gamma\"\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/tagsController.js",
+    "groupTitle": "Tags"
+  },
+  {
     "type": "post",
     "url": "/token",
     "title": "Get authentication token",
