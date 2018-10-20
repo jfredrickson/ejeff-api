@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 let config = {}
 
 switch (process.env.NODE_ENV) {

@@ -11,4 +11,4 @@ bin/createuser USERNAME PASSWORD
 ## Development and Testing
 
 To use a fake SMTP service in development, [create an Ethereal account](https://ethereal.email/)
-and add the connection information to `.envrc`.
+and add the connection information to `.env` (see `.env.example`).
