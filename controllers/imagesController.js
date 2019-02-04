@@ -1,6 +1,5 @@
 const config = require('../config')
 const fs = require('fs')
-const URL = require('url').URL
 
 /**
  * @api {post} /images Upload image
