@@ -1,6 +1,37 @@
 [
   {
     "type": "post",
+    "url": "/images",
+    "title": "Upload image",
+    "name": "PostImage",
+    "group": "Images",
+    "description": "<p>Receives an image upload. The request must be <code>multipart/form-data</code> with the image included in a field named <code>image</code>.</p>",
+    "success": {
+      "fields": {
+        "Response": [
+          {
+            "group": "Response",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>URL to the image</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "SuccessResponse",
+          "content": "HTTP/1.1 201 Created\n{\n  \"url\": \"http://localhost:3000/files/image-20190204T203340215Z-dot.png\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/imagesController.js",
+    "groupTitle": "Images"
+  },
+  {
+    "type": "post",
     "url": "/inquiries",
     "title": "Create inquiry",
     "name": "PostInquiry",

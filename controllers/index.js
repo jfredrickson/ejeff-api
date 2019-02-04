@@ -5,7 +5,9 @@ const tagsController = require('./tagsController')
 const usersController = require('./usersController')
 const tokensController = require('./tokensController')
 const inquiriesController = require('./inquiriesController')
+const imagesController = require('./imagesController')
 const auth = require('../services/auth')
+const upload = require('../services/upload')
 
 router.get('/projects', projectsController.index)
 router.get('/projects/:projectId', projectsController.show)
@@ -21,6 +23,8 @@ router.put('/users/:userId', auth.requireAuth, usersController.update)
 router.post('/token', auth.requireLogin, tokensController.create)
 
 router.post('/inquiries', inquiriesController.create)
+
+router.post('/images', auth.requireAuth, upload.single('image'), imagesController.create)
 
 router.get('/', (req, res) => {
   res.json()
