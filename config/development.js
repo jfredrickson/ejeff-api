@@ -1,6 +1,6 @@
 module.exports = new function () {
   this.env = 'development'
-  this.port = process.env.PORT || 3000
+  this.port = process.env.PORT || 4000
   this.baseUrl = process.env.BASE_URL || 'http://localhost:' + this.port + '/'
   this.secret = process.env.SECRET || 'abc123'
   this.tokenExpiration = '1 day'
