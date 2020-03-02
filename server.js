@@ -8,7 +8,7 @@ const config = require('./config')
 const routes = require('./controllers')
 
 mongoose.Promise = global.Promise
-mongoose.connect(config.db.url, { useMongoClient: true })
+mongoose.connect(config.db.url)
 
 const app = express()
 
