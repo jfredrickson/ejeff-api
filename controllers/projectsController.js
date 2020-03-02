@@ -75,6 +75,7 @@ module.exports.show = (req, res) => {
  * @apiParam (Request) {String} [summary] Brief project summary
  * @apiParam (Request) {String} [details] Detailed description
  * @apiParam (Request) {String[]} [tags] Array of tags
+ * @apiParam (Request) {String} [imageRef] Image URL or filename
  *
  * @apiParamExample RequestExample
  *   {
@@ -105,6 +106,7 @@ module.exports.create = (req, res) => {
   project.summary = req.body.summary
   project.details = req.body.details
   project.tags = req.body.tags
+  project.imageRef = req.body.imageRef
   project.save((err) => {
     if (err) {
       if (err.name === 'ValidationError') {
@@ -126,6 +128,7 @@ module.exports.create = (req, res) => {
  * @apiParam (Request) {String} [summary] Updated brief project summary
  * @apiParam (Request) {String} [details] Updated detailed description
  * @apiParam (Request) {String[]} [tags] Updated array of tags
+ * @apiParam (Request) {String} [imageRef] Updated image URL or filename
  *
  * @apiParamExample RequestExample
  *   {
@@ -143,6 +146,7 @@ module.exports.update = (req, res) => {
     project.summary = req.body.summary || project.summary
     project.details = req.body.details || project.details
     project.tags = req.body.tags || project.tags
+    project.imageRef = req.body.imageRef || project.imageRef
     project.save((err) => {
       if (err) {
         if (err.name === 'ValidationError') {
