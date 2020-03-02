@@ -13,13 +13,13 @@ describe('Projects', function () {
   let testUser
 
   beforeEach(function (done) {
-    Project.remove({}, function (err) {
+    Project.deleteMany({}, function (err) {
       done()
     })
   })
 
   beforeEach(function (done) {
-    User.remove({}, function (err) {
+    User.deleteMany({}, function (err) {
       User.create({ username: 'user1', password: 'user1' }, (err, user) => {
         testUser = user
         done()

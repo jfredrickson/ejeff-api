@@ -6,7 +6,7 @@ const User = require('../models/user')
 
 mongoose.Promise = global.Promise
 
-mongoose.connect(config.db.url, (err, db) => {
+mongoose.connect(config.db.url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, db) => {
   const initialUser = new User({
     username: process.argv[2],
     password: process.argv[3]
