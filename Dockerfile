@@ -1,4 +1,4 @@
-FROM node:carbon-alpine
+FROM node:carbon-dubnium
 WORKDIR /srv/api
 COPY package*.json ./
 RUN npm install
