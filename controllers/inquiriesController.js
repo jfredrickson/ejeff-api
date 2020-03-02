@@ -32,10 +32,10 @@ module.exports.create = (req, res) => {
   }
 
   const mail = {
-    from: config.inquiriesMailFrom,
+    from: `${req.body.name} <${req.body.email}>`,
     to: config.inquiriesMailTo,
-    subject: 'ejeff.org contact form submission',
-    text: `From: ${req.body.name} (${req.body.email})\nMessage:\n${req.body.message}`
+    subject: `[ejeff.org inquiry] ${req.body.message.substring(0, 50)} ...`,
+    text: req.body.message
   }
 
   const transport = nodemailer.createTransport(config.mailTransport)
