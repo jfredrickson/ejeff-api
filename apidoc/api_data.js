@@ -112,7 +112,7 @@ define({ "api": [
       "examples": [
         {
           "title": "SuccessResponse",
-          "content": "HTTP/1.1 200 OK\n{\n  \"_id\": \"5bca13ee58806d53af7becc3\",\n  \"summary\": \"Project summary\",\n  \"title\": \"Project 3\",\n  \"__v\": 0,\n  \"tags\": [\n    \"alpha\",\n    \"beta\",\n    \"gamma\"\n  ]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"_id\": \"5bca13ee58806d53af7becc3\",\n  \"summary\": \"Project summary\",\n  \"title\": \"Project 3\",\n  \"__v\": 0,\n  \"tags\": [\n    \"alpha\",\n    \"beta\",\n    \"gamma\"\n  ],\n  \"imageRef\": \"https://example.com/project3.png\"\n}",
           "type": "json"
         }
       ]
@@ -131,7 +131,7 @@ define({ "api": [
       "examples": [
         {
           "title": "SuccessResponse",
-          "content": "HTTP/1.1 200 OK\n[\n  {\n    \"_id\": \"5a986f06be4c400237ddb3b0\",\n    \"title\": \"Project 1\",\n    \"__v\": 0,\n    \"tags\": []\n  },\n  {\n    \"_id\": \"5a987ee8c6be33349b3defe5\",\n    \"title\": \"Project 2\",\n    \"__v\": 0,\n    \"tags\": []\n  },\n  {\n    \"_id\": \"5bca13ee58806d53af7becc3\",\n    \"summary\": \"Project summary\",\n    \"title\": \"Project 3\",\n    \"__v\": 0,\n    \"tags\": [\n        \"alpha\",\n        \"beta\",\n        \"gamma\"\n    ]\n  }\n]",
+          "content": "HTTP/1.1 200 OK\n[\n  {\n    \"_id\": \"5a986f06be4c400237ddb3b0\",\n    \"title\": \"Project 1\",\n    \"__v\": 0,\n    \"tags\": [],\n    \"imageRef\": \"https://example.com/project1.png\"\n  },\n  {\n    \"_id\": \"5a987ee8c6be33349b3defe5\",\n    \"title\": \"Project 2\",\n    \"__v\": 0,\n    \"tags\": [],\n    \"imageRef\": \"/files/project2.png\"\n  },\n  {\n    \"_id\": \"5bca13ee58806d53af7becc3\",\n    \"summary\": \"Project summary\",\n    \"title\": \"Project 3\",\n    \"__v\": 0,\n    \"tags\": [\n        \"alpha\",\n        \"beta\",\n        \"gamma\"\n    ]\n  }\n]",
           "type": "json"
         }
       ]
@@ -176,13 +176,20 @@ define({ "api": [
             "optional": true,
             "field": "tags",
             "description": "<p>Array of tags</p>"
+          },
+          {
+            "group": "Request",
+            "type": "String",
+            "optional": true,
+            "field": "imageRef",
+            "description": "<p>Image URL or filename</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "RequestExample",
-          "content": "{\n  \"title\": \"foobar\",\n  \"summary\": \"An awesome project\",\n  \"details\": \"This project is all about foobar.\",\n  \"tags\": [ \"foo\", \"bar\" ]\n}",
+          "content": "{\n  \"title\": \"foobar\",\n  \"summary\": \"An awesome project\",\n  \"details\": \"This project is all about foobar.\",\n  \"tags\": [ \"foo\", \"bar\" ],\n  \"imageRef\": \"/files/foobar.png\"\n}",
           "type": "json"
         }
       ]
@@ -202,7 +209,7 @@ define({ "api": [
       "examples": [
         {
           "title": "SuccessResponse",
-          "content": "HTTP/1.1 201 Created\n{\n  \"__v\": 0,\n  \"summary\": \"summary\",\n  \"title\": \"p3\",\n  \"_id\": \"5bca140f58806d53af7becc5\",\n  \"tags\": [\n    \"foo\",\n    \"bar\"\n  ]\n}",
+          "content": "HTTP/1.1 201 Created\n{\n  \"__v\": 0,\n  \"summary\": \"summary\",\n  \"title\": \"p3\",\n  \"_id\": \"5bca140f58806d53af7becc5\",\n  \"tags\": [\n    \"foo\",\n    \"bar\"\n  ],\n  \"imageRef\": \"/files/foobar.png\"\n}",
           "type": "json"
         }
       ]
@@ -247,6 +254,13 @@ define({ "api": [
             "optional": true,
             "field": "tags",
             "description": "<p>Updated array of tags</p>"
+          },
+          {
+            "group": "Request",
+            "type": "String",
+            "optional": true,
+            "field": "imageRef",
+            "description": "<p>Updated image URL or filename</p>"
           }
         ]
       },

@@ -12,13 +12,15 @@ const Project = require('../models/project')
  *       "_id": "5a986f06be4c400237ddb3b0",
  *       "title": "Project 1",
  *       "__v": 0,
- *       "tags": []
+ *       "tags": [],
+ *       "imageRef": "https://example.com/project1.png"
  *     },
  *     {
  *       "_id": "5a987ee8c6be33349b3defe5",
  *       "title": "Project 2",
  *       "__v": 0,
- *       "tags": []
+ *       "tags": [],
+ *       "imageRef": "/files/project2.png"
  *     },
  *     {
  *       "_id": "5bca13ee58806d53af7becc3",
@@ -56,7 +58,8 @@ module.exports.index = (req, res) => {
  *       "alpha",
  *       "beta",
  *       "gamma"
- *     ]
+ *     ],
+ *     "imageRef": "https://example.com/project3.png"
  *   }
  */
 module.exports.show = (req, res) => {
@@ -82,7 +85,8 @@ module.exports.show = (req, res) => {
  *     "title": "foobar",
  *     "summary": "An awesome project",
  *     "details": "This project is all about foobar.",
- *     "tags": [ "foo", "bar" ]
+ *     "tags": [ "foo", "bar" ],
+ *     "imageRef": "/files/foobar.png"
  *   }
  *
  * @apiSuccess (Response) {String} username New username
@@ -97,7 +101,8 @@ module.exports.show = (req, res) => {
  *     "tags": [
  *       "foo",
  *       "bar"
- *     ]
+ *     ],
+ *     "imageRef": "/files/foobar.png"
  *   }
  */
 module.exports.create = (req, res) => {
