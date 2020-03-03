@@ -41,7 +41,7 @@
     "passport-jwt": "^4.0.0"
   },
   "devDependencies": {
-    "apidoc": "^0.17.7",
+    "apidoc": "^0.20.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "nyc": "^15.0.0",
