@@ -1,4 +1,4 @@
-FROM node:carbon-dubnium
+FROM node:erbium
 WORKDIR /srv/api
 COPY package*.json ./
 RUN npm install
