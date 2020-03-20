@@ -31,10 +31,12 @@ module.exports.create = (req, res) => {
     return res.status(400).send("A message is required.")
   }
 
+  const subject = req.body.message.substring(0, 50) + (req.body.message.length > 50 ? '...' : '')
+
   const mail = {
     from: `${req.body.name} <${req.body.email}>`,
     to: config.inquiriesMailTo,
-    subject: `[ejeff.org inquiry] ${req.body.message.substring(0, 50)} ...`,
+    subject: `[ejeff.org inquiry] ${subject}`,
     text: req.body.message
   }
 
