@@ -8,7 +8,6 @@ module.exports = new function () {
   this.db = {
     url: process.env.DATABASE_URL
   }
-  this.inquiriesMailFrom = process.env.INQUIRIES_MAIL_FROM
   this.inquiriesMailTo = process.env.INQUIRIES_MAIL_TO
   this.mailTransport = {
     host: process.env.SMTP_HOST,

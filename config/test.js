@@ -8,8 +8,7 @@ module.exports = new function () {
   this.db = {
     url: process.env.DATABASE_URL || 'mongodb://localhost/ejeff-test'
   }
-  this.inquiriesMailFrom = 'from@example.net'
-  this.inquiriesMailTo = 'to@example.com'
+  this.inquiriesMailTo = process.env.INQUIRIES_MAIL_TO || 'to@example.com'
   this.mailTransport = {
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
