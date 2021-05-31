@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+const api = require('../controllers')
+
+for (const layer of api.stack) {
+  const methods = Object.keys(layer.route.methods).join(' ').toUpperCase().padEnd(8, ' ')
+  const path = '/api' + layer.route.path
+  console.log(`${methods} ${path}`)
+}
