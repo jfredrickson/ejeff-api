@@ -276,7 +276,16 @@
       "examples": [
         {
           "title": "SuccessResponse",
-          "content": "HTTP/1.1 204 No Content",
+          "content": "204 No Content",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "InvalidProjectID",
+          "content": "404 Not Found",
           "type": "json"
         }
       ]

@@ -61,9 +61,13 @@ module.exports.index = (req, res) => {
  *     ],
  *     "imageRef": "https://example.com/project3.png"
  *   }
+ * 
+ * @apiErrorExample InvalidProjectID
+ *   HTTP/1.1 404 Not Found 
  */
 module.exports.show = (req, res) => {
   Project.findById(req.params.projectId, (err, project) => {
+    if (project === null) return res.status(404).send()
     if (err) return res.status(500).send(err)
     res.status(200).json(project)
   })
@@ -143,9 +147,13 @@ module.exports.create = (req, res) => {
  *
  * @apiSuccessExample SuccessResponse
  *   HTTP/1.1 204 No Content
+ * 
+ * @apiErrorExample InvalidProjectID
+ *   HTTP/1.1 404 Not Found
  */
 module.exports.update = (req, res) => {
   Project.findById(req.params.projectId, (err, project) => {
+    if (project === null) return res.status(404).send()
     if (err) return res.status(500).send(err)
     project.title = req.body.title || project.title
     project.summary = req.body.summary || project.summary
@@ -172,9 +180,13 @@ module.exports.update = (req, res) => {
  *
  * @apiSuccessExample SuccessResponse
  *   HTTP/1.1 204 No Content
+ * 
+ * @apiErrorExample InvalidProjectID
+ *   HTTP/1.1 404 Not Found
  */
 module.exports.destroy = (req, res) => {
-  Project.findByIdAndRemove(req.params.projectId, (err) => {
+  Project.findByIdAndRemove(req.params.projectId, (err, project) => {
+    if (project === null) return res.status(404).send()
     if (err) return res.status(500).send(err)
     res.status(204).send()
   })
