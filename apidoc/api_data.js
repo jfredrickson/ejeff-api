@@ -98,6 +98,15 @@ define({ "api": [
         }
       ]
     },
+    "error": {
+      "examples": [
+        {
+          "title": "InvalidProjectID",
+          "content": "HTTP/1.1 404 Not Found",
+          "type": "json"
+        }
+      ]
+    },
     "version": "0.0.0",
     "filename": "controllers/projectsController.js",
     "groupTitle": "Projects"
@@ -113,6 +122,15 @@ define({ "api": [
         {
           "title": "SuccessResponse",
           "content": "HTTP/1.1 200 OK\n{\n  \"_id\": \"5bca13ee58806d53af7becc3\",\n  \"summary\": \"Project summary\",\n  \"title\": \"Project 3\",\n  \"__v\": 0,\n  \"tags\": [\n    \"alpha\",\n    \"beta\",\n    \"gamma\"\n  ],\n  \"imageRef\": \"https://example.com/project3.png\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "InvalidProjectID",
+          "content": "HTTP/1.1 404 Not Found",
           "type": "json"
         }
       ]
@@ -276,7 +294,7 @@ define({ "api": [
       "examples": [
         {
           "title": "SuccessResponse",
-          "content": "204 No Content",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -285,7 +303,7 @@ define({ "api": [
       "examples": [
         {
           "title": "InvalidProjectID",
-          "content": "404 Not Found",
+          "content": "HTTP/1.1 404 Not Found",
           "type": "json"
         }
       ]
@@ -465,6 +483,15 @@ define({ "api": [
         {
           "title": "SuccessResponse",
           "content": "HTTP/1.1 204 No Content",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "InvalidUserID",
+          "content": "HTTP/1.1 404 Not Found",
           "type": "json"
         }
       ]

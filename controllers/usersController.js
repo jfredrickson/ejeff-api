@@ -49,9 +49,13 @@ module.exports.create = (req, res) => {
  * 
  * @apiSuccessExample SuccessResponse
  *   HTTP/1.1 204 No Content
+ * 
+ * @apiErrorExample InvalidUserID
+ *   HTTP/1.1 404 Not Found
  */
 module.exports.update = (req, res) => {
   User.findById(req.params.userId, (err, user) => {
+    if (user === null) return res.status(404).send()
     if (err) return res.status(500).send(err)
     user.username = req.body.username || user.username
     user.password = req.body.password || user.password
