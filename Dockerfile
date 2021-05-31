@@ -1,4 +1,4 @@
-FROM node:erbium
+FROM node:fermium
 WORKDIR /srv/api
 COPY package*.json ./
 RUN npm install
